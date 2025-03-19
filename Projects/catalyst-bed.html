@@ -132,6 +132,23 @@
             margin-bottom: 15px;
         }
         
+        .project-video-container {
+            margin: 30px 0;
+        }
+
+        video {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-caption {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
         .project-image-container {
             width: 50%;
             margin: 0 0 20px 30px;
@@ -255,7 +272,7 @@
             </ul>
         </div>
     </nav>
-    
+
     <!-- Project Header -->
     <header class="project-header container">
         <a href="../index.html" class="back-btn">← Back to All Projects</a>
@@ -272,17 +289,23 @@
         <!-- LRL Background -->
         <div class="project-section">
             <h2>Liquid Rocketry Lab (LRL)</h2>
+            
+            <div class="project-video-container" style="float: right; width: 45%; margin-left: 30px; margin-bottom: 20px;">
+                <video width="100%" controls muted>
+                <source src="/videos/coldflow.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            <p class="video-caption">Clip from one of our Cold Flows</p>
+            </div>
             <p>
                 Liquid Rocketry Lab and it's mission.
             </p>
             <p>
                 Talk a little about where we are at as a company.
             </p>
-            <div class="project-image-container">
-                <img src="../images/project-main.jpg" alt="Project Overview" class="project-image">
-                <p class="image-caption">Caption: [Brief description of the image]</p>
-            </div>
         </div>
+        <div style="clear: both;"></div>
+
 
         <!-- My history with LRL and my role over the years -->
         <div class="project-section"> 
