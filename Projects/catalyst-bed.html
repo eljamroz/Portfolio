@@ -192,10 +192,11 @@
         }
 
         .grid-item img {
-            width: 100%;
-            aspect-ratio: 4/3; /* Maintains consistent image proportions */
-            object-fit: contain; /* Covers the area nicely */
-            border-bottom: 1px solid #eee;
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            background-color: #ffffff;
+            padding: 15px;
+
         }
 
         .grid-caption {
@@ -211,6 +212,41 @@
             transform: scale(1.05);
         }
         
+        /* Grey background grid */
+        .image-grid-grey {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+            width: 100%;
+        }
+
+        .image-grid-grey .grid-item {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #292929;
+        }
+
+        .image-grid-grey .grid-item img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            background-color: #292929; /* Grey background */
+            padding: 15px;
+        }
+
+        /* Shared caption styles for both grids */
+        .image-grid-grey .grid-caption {
+            padding: 12px;
+            text-align: center;
+            color: #ffffff;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin: 0;
+        }
         /* Technologies Used */
         .tech-list {
             display: flex;
@@ -369,7 +405,7 @@
             <p>
                 The Argenta 7A is LRL's ~31kN bipropellant engine. Argenta 7A is designed to generate experimental data for developing flight-ready rocket 
                 engines (future versions will follow as revisions B, C, D, etc.). This design prioritizes manufacturability, simplicity, and 
-                quick production for testing purposes. We've selected a pressure-fed, bi-propellant engine using HTP & Jet A as propellants.
+                quick production for testing purposes. A pressure-fed, bi-propellant engine using HTP & Jet A as propellants was chosen.
             </p>
         <div style="clear: both;"></div>
         </div>
@@ -424,39 +460,140 @@
                     <p class="grid-caption">Catalyst Cartridge - Replaceable element</p>
                 </div>
             </div>
+            <br>
             
+        
+            <div class="project-image-container" style="float: right; width: 40%; margin: 0 0 20px 30px;">
+                <img src="/images/SSMesh.PNG" alt="Project Overview" class="project-image">
+                <p class="image-caption">Unplated SS Mesh (~100X mag)</p>
+            </div>
+        
+            <h2>Electroplating Silver Meshes</h2>
             <p>
-                More Details, very long design process
+                During the 2024 summer, I led the research and procedure writing for the electroplating of the silver mesh. This was a crucial step in the design process, as 
+                we quickly discovered purchasing a silver mesh was unaffordable. We decided to electroplate the mesh ourselves, which is a lengthy process.
+                After a lot of reading about a few different methods of silver plating, I decided we'd go with a cyanide based silver plating solution. This process has
+                its pros and cons, but it was the best option for our application. </p>
+                <p>When we look at the positives, the cyanide process is the most effective silver plating method, with dozens of years of use across a dozen industries. 
+                The cyanide process is also known to have the best adhesion, plating surface controlability, and the best conductivity. <br>
+                </p>
+              <div style="clear: both;"></div>
+ 
+            <div class="project-image-container" style="float: right; width: 40%; margin: 0 0 20px 30px;">
+                <img src="/images/NSMesh.PNG" alt="Project Overview" class="project-image">
+                <p class="image-caption">Nickel Struck Mesh (~100X mag)</p>
+            </div>
+               <p>
+                The negatives are that the cyanide process is the most dangerous, and requires a lot of safety precautions. This means I had to go into a deep dive on 
+                cyanide safety, and what the concerns actually are here. This involved drawing up safety procedures that we eventually cleared with Environmental Health and Safety at NC State.</p>
+                <p>
+                Our plating process is a 3 step plate which goes on a stainless steel mesh. It involves a nickel strike, a silver strike, and a silver plate, with thicknesses that follow aerospace standards 
+                for plated catalysts. </p>
+                <p>
+                We are currently in the plating proccess and have just finished several rounds of nickel striked plating. To the right are some images of the plates under a microscope.
+                
             </p>
+
         </div>
         
+        <div style="clear: both;"></div>
+
         <!-- Validation Section -->
         <div class="project-section">
             <h2>Validation</h2>
             <p>
-               Talk about some of the ANSYS simulations we ran to validate our design.
+               Validation has been a huge part of the process on the way to a critical design review. The previous team lead and I have sunk countless hours into the 
+                validation of the catalyst bed to ensure safety and efficiency. As it is a high pressure high temperature vessel that is essential to downstream components,
+                we have to make sure it is safe and reliable. The things we have to consider are steady state and transient pressure analysis, transient thermal analysis,
+                bolt pretensioning and it's effect on the sealing of the flanges, and more. It's been a really great learning opportunity for me, as before this, I had only classroom Ansys experience.
             </p>
             
-            <div class="project-image-container">
-                <img src="../images/solution.jpg" alt="Final Solution" class="project-image">
-                <p class="image-caption">Caption: [Brief description of the final solution]</p>
+            <div class="image-grid-grey">
+                <div class="grid-item">
+                    <img src="../images/BoltedMesh.jpg" alt="Chamber Head">
+                    <p class="grid-caption">Medium Density Meshing</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/Loads.jpg" alt="Chamber Housing">
+                    <p class="grid-caption">Bolt Pretension Test Setup</p>
+                </div>
+                <div class="grid-item">
+                    <video width="100%" controls muted>
+                        <source src="/videos/TransientThermal.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="grid-caption">Transient Thermal Temp Results</p>
+                </div>
             </div>
             
             <p>
-                [Add technical specifications, performance metrics, or other relevant details about your solution.]
+                Very Valid. Much Validation. Wow.
             </p>
         </div>
         
         <!-- Manufacturing Section -->
         <div class="project-section">
             <h2>Manufacturing</h2>
+            <div class="project-image-container" style="float: right; width: 30%; margin: 0 0 20px 30px;">
+                <img src="/images/BlindFlange.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">Blind Flange - Pre-Mfg</p>
+                <img src="/images/WeldNeckFlange1.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">Weld Neck Flange - Pre-Mfg</p>
+            </div>
             <p>
-                Talk about how I am succefully leading the manufacturing of the catalyst bed this Spring.
+                By far my biggest responsibility as the Principal Engineer of the Catalyst Bed team has been leading the manufacturing of the catalyst bed housing. 
+                Mainly made of 316 stainless steel, the catalyst bed housing consists of 3 main assemblies. The chamber head is made from a class 300 ANSI B16.5
+                blind flange that I will mill on a CNC machine. Similarly, the chamber housing is made from a class 300 ANSI B16.5 weld neck flange that I will mill on a CNC machine. 
             </p>
             <p>
-                Talk about making manufacturing decisions based on cost, time, and quality. Using NX to make engineering drawings,
-                and to review our designs for manufacturability. 
+                The cartridge is a bit more complex, as it is made from a 316 stainless steel tube that I will have touch up on a lathe. The tube is then welded to the support plated
+                which is what helps support the pressure of the catalyst chamber while still providing distibution without pressure drop. 
+                The meshes are then compressed inside the tube at around 1000 psi, and on top is placed the distribution plate. Then the cartridge would be
+                dropped into the chamber housing and blted shut. 
             </p>
+            <p>
+                The prep for the manufacturing process has involved using NX to create the MFG drawings for each part, picking how each feature will be 
+                created, finding end mills and other tools needed, and learning how to use the CNC machine. I also had to focus on cost and time, as we are on a tight budget and schedule.
+                I should have this entire bed manufactured for less than a thousand dollars, and with certain partners and sponsers I've reached out too it could get cheaper as well.
+                Below is a collection of a manufacturing drawings that I made for the parts. 
+            </p>
+            <div style="clear: both;"></div>
+
+            <div class="image-grid">
+                <div class="grid-item">
+                    <img src="../images/HeadPipe.png" alt="Chamber Head">
+                    <p class="grid-caption">Chamber Head Pipe DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/HeadDWG.png" alt="Chamber Housing">
+                    <p class="grid-caption">Chamber Head Flange DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/HousingDWG.jpg" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Chamber Housing Flange DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/Distribution.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Distribution Plate DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/SupportPlate.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Support Plate DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/ASSY1.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Head Assembly DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/ASSY2.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Cartridge Assembly DWG</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/ASSY3.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Housing Assembly DWG</p>
+                </div>
+            </div>
+            
         </div>
         
         <!-- Technologies Used -->
@@ -482,7 +619,7 @@
         <div class="project-section">
             <h2>Conclusion</h2>
             <p>
-                [Summarize what you learned from this project and how it has contributed to your development as an engineer. Mention any future improvements or extensions you might consider.]
+                This project is ongoing, and is about to be manufactured. I will update this page with the results of the manufacturing process. After that will come testing! 
             </p>
         </div>
     </div>
