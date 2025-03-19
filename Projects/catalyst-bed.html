@@ -85,6 +85,12 @@
             color: var(--primary-color);
         }
         
+        .section-divider {
+            border-top: 2px solid #2c3e50;
+            margin: 40px 0;
+            width: 100%;
+        }
+
         .project-meta {
             color: #666;
             margin-bottom: 20px;
@@ -170,17 +176,35 @@
         
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin: 30px 0;
-        }
-        
-        .image-grid img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
             border-radius: 8px;
-            transition: transform 0.3s;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .grid-item img {
+            width: 100%;
+            aspect-ratio: 4/3; /* Maintains consistent image proportions */
+            object-fit: contain; /* Covers the area nicely */
+            border-bottom: 1px solid #eee;
+        }
+
+        .grid-caption {
+            padding: 12px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin: 0; /* Remove default paragraph margins */
         }
         
         .image-grid img:hover {
@@ -334,35 +358,71 @@
                 manufacturing processes, ANSYS simulations, and more technical skills detailed below. 
             </p>
         </div>
+        <div class="section-divider"></div>
+        <!-- Overview Section -->
+        <div class="project-section">
+            <h2>Context: LRL's Argenta 7A</h2>
+            <div class="project-image-container" style="float: right; width: 20%; margin: 0 0 0px 20px;">
+                <img src="/images/argenta.png" alt="Project Overview" class="project-image">
+                <p class="image-caption">Argenta 7A</p>
+            </div>
+            <p>
+                The Argenta 7A is LRL's ~31kN bipropellant engine. Argenta 7A is designed to generate experimental data for developing flight-ready rocket 
+                engines (future versions will follow as revisions B, C, D, etc.). This design prioritizes manufacturability, simplicity, and 
+                quick production for testing purposes. We've selected a pressure-fed, bi-propellant engine using HTP & Jet A as propellants.
+            </p>
+        <div style="clear: both;"></div>
+        </div>
+
+        <div class="section-divider"></div>
 
         <!-- Overview Section -->
         <div class="project-section">
             <h2>Overview: Catalyst Bed - Argenta 7A</h2>
-           
             <div class="project-image-container" style="float: right; width: 40%; margin: 0 0 20px 30px;">
                 <img src="/images/catbed.png" alt="Project Overview" class="project-image">
-                <p class="image-caption">Caption: The Catalyst Bed</p>
+                <p class="image-caption">The Catalyst Bed</p>
             </div>
-            <p>Talk about Argenta 7A and the catalyst bed. This is a detailed description of the project that will wrap around the image on the right. Add several sentences to ensure there's enough text to demonstrate the wrapping effect properly.</p>
-            <p>Additional paragraphs can be added to continue the description of your project, explaining its purpose, design considerations, and technical specifications.</p>
-    
+            
+            <p>Our catalyst bed is a large silver mesh catalyst bed that will decompose 11 kg/s of 90% HTP, which will be part of the 31 kN HTP/Jet-A bipropellant engine.</p>
+            <p>A catalyst bed is used to decompose a propellant, in our case 90% HTP or High-Test (Hydrogen) Peroxide, into products that are more readily combustible with Jet-A. 
+               Additionally (and crucially), the decomposition reaction releases a significant amount of energy in the form of heat and kinetic energy (rapid gas expansion). 
+               HTP decomposes into primarily superheated steam and gaseous oxygen. These decomposition products are then injected into the combustion chamber. They flow through 
+               the gas ports of the injector where they are mixed with Jet-A. The decomposition temperature of 90% HTP is approximately 1000 K, which is high enough to auto-ignite
+               Jet-A with gaseous oxygen. A well understood catalyst type used for HTP are stacked silver screens. This is the catalyst type that we pursued for our design. </p>
         </div>
         
         <div style="clear: both;"></div>
 
-        
+        <div class="section-divider"></div>
+
         
         <!-- Process Section -->
         <div class="project-section">
-            <h2>Design Process</h2>
+            <h2>The Design</h2>
+            <div class="project-image-container" style="float: right; width: 40%; margin: 0 0 20px 30px;">
+                <img src="/images/SectionView.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">CatBed Section View</p>
+            </div>
             <p>
-                [Explain our design process, including any research, calculations, prototyping, and testing that you conducted. This is where you can showcase your engineering methodology.]
+                During my time as a member of the Catalyst Bed team, I worked closely with the previous team lead to learn as much as we could about Catalyst Beds, and to
+                help with this design process. The bed consists of the housing and catalyst cartidge. Made of 316 stainless steel, the housing is designed from two flanges 
+                which will contain the silver mesh stack.<br>
             </p>
             
             <div class="image-grid">
-                <img src="../images/process-1.jpg" alt="Initial Design">
-                <img src="../images/process-2.jpg" alt="Simulation Results">
-                <img src="../images/process-3.jpg" alt="Prototype Testing">
+                <div class="grid-item">
+                    <img src="../images/ChamberHead.jpg" alt="Chamber Head">
+                    <p class="grid-caption">Chamber Head - Main component that directs flow</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/ChamberHouse.jpg" alt="Chamber Housing">
+                    <p class="grid-caption">Chamber Housing - Contains the catalyst material</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/Cartride.png" alt="Catalyst Cartridge">
+                    <p class="grid-caption">Catalyst Cartridge - Replaceable element</p>
+                </div>
             </div>
             
             <p>
