@@ -133,35 +133,56 @@
         }
         
         .project-image-container {
-            margin: 30px 0;
+            width: 50%;
+            margin: 0 0 20px 30px;
         }
-        
+
         .project-image {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .image-caption {
             text-align: center;
             color: #666;
             font-style: italic;
             margin-top: 10px;
+            font-size: 0.9rem;
         }
         
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin: 30px 0;
-        }
-        
-        .image-grid img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+        }
+
+        .grid-item {
+            display: flex;
+            flex-direction: column;
             border-radius: 8px;
-            transition: transform 0.3s;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+        .grid-item img {
+            aspect-ratio: 16/9;
+            object-fit: contain;
+            background-color: #ffffff;
+            padding: 15px;
+
+        }
+
+        .grid-caption {
+            padding: 12px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin: 0; /* Remove default paragraph margins */
         }
         
         .image-grid img:hover {
@@ -257,10 +278,10 @@
     <!-- Project Header -->
     <header class="project-header container">
         <a href="../index.html" class="back-btn">← Back to All Projects</a>
-        <h1>Project Title</h1>
+        <h1>Combustion Chamber Wall</h1>
         <div class="project-meta">
             <span>Category: Engineering Design</span>
-            <span>Year: 2024</span>
+            <span>Year: 2025</span>
         </div>
     </header>
     
@@ -269,30 +290,55 @@
         <!-- Overview Section -->
         <div class="project-section">
             <h2>Overview</h2>
-            <p>
-                [Provide a brief overview of the project, its purpose, and why it was undertaken. Describe the problem that this project was designed to solve and the approach you took to address it.]
-            </p>
-            
-            <div class="project-image-container">
-                <img src="../images/project-main.jpg" alt="Project Overview" class="project-image">
-                <p class="image-caption">Caption: [Brief description of the image]</p>
+            <div class="project-image-container" style="float: right; width: 25%; margin: 0 0 0px 20px;">
+                <img src="/images/RDE.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">The RDE</p>
+                <img src="/images/ChamberView.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">Combustion Chamber</p>
             </div>
+            <p>
+                This is a project I am working on in a research lab, Braun's Engineering Factory for Advanced Supersonic Technologies (BEFAST). 
+                BEFAST is currently developing a baby Rotating Detonation Engine (RDE) for testing applications. The RDE will allow for different
+                teams to test many individual projects on the same egnine and test stand. </p>
+                <p>
+                This semester I've taken on a project to research, design, manufacture, and test a new combustion chamber wall for the RDE. What 
+                will be unique about my chamber is that it will be focused on two aspects of testing we haven't yet designed for gathering data. </p>
+                <p>
+                The first new implementation will be a series of thermocouples that will be placed in the wall to gather temperature data. The reason
+                we haven't implemented this on the original chamber is due to the extreme temperature inside the chamber. With temperatures reaching 3000-4000K, almost any 
+                ordinary thermocouples are destroyed before providing any data. So the challenge is to find accurate ways to record the data over a short test duration. 
+                <p>
+                The second new implementation will be a quartz window that will allow us to see the flow and detonation waves in the chamber. Having optical access to the
+                chamber flow should help confirm simulations and provide a nice visual to show what we are achieving in the chamber.   
+                </p>
+            </p>
+            <div style="clear: both;"></div>
+
         </div>
         
         <!-- Challenge Section -->
         <div class="project-section">
-            <h2>The Challenge</h2>
+            <h2>Research</h2>
             <p>
-                [Describe the specific engineering challenges you faced with this project. What made this project difficult or interesting? What constraints did you have to work within?]
+                The harsh conditions inside a Rotating Detonation Engine (RDE) chamber make thermocouple survival extremely challenging. 
+                In terms of mechanical stress, the detonation waves in RDEs travel at Mach 5-7 (approximately 1,700-2,400 m/s), and these waves create intense shock fronts with sudden 
+                pressure jumps of 15-30 times the initial pressure. The rapid acceleration of flow behind these shock fronts creates extreme shear forces that can damage anything 
+                extruding into the chamber flow. Then you consider the thermal impact, the detonation waves create temperatures of 3000-4000K, which is too hot for conventional thermocouples.
             </p>
             <p>
-                [Add more details about the technical challenges and requirements you needed to meet.]
+                So the challenge is to find a affordable and accurate way to use thermocouples to gather temperature data. I had two ideas to solve this problem. The first was to use a 
+                NANMAC Ultra Fast thermocouple with what they advertise as a "Self Renewing Junction". This is a thermocouple that is designed to be used in high stress and temperature environments, and the
+                tip can erode or wear away up to 1/2 inch during the test while still retrieving data. This NANMAC thermocouple would be placed in the chamber wall and the tip would be flush with the interior
+                surface of the wall, fully expepriencing the chamber flow. The second idea, which I plan to attempt if the NANMAC thermocouple fails, is to not bore the thermocouple port all the way through the wall. 
+                By not having the thermocouple tip fully exposed to the chamber flow, the instumentation would be protected. This may be a good option as we could use a lower quality thermocouple, as it would not experience 
+                such extreme conditions. The downside to this is that the data would be less accurate and our results would be
+                based on heat transfer calculations, and would naturally not be as accurate as direct temperature data. 
             </p>
         </div>
         
         <!-- Process Section -->
         <div class="project-section">
-            <h2>Design Process</h2>
+            <h2>Designs</h2>
             <p>
                 [Explain your design process, including any research, calculations, simulations, prototyping, and testing that you conducted. This is where you can showcase your engineering methodology.]
             </p>
@@ -308,11 +354,11 @@
             </p>
         </div>
         
-        <!-- Solution Section -->
+        <!-- Future Section -->
         <div class="project-section">
-            <h2>Solution</h2>
+            <h2>Future Plans</h2>
             <p>
-                [Describe your final solution in detail. What design decisions did you make and why? How does your solution solve the original problem?]
+                Talk about what is next, how I plan to validate the design and move forward with a design review and then manufacturing.
             </p>
             
             <div class="project-image-container">
@@ -325,36 +371,18 @@
             </p>
         </div>
         
-        <!-- Results Section -->
-        <div class="project-section">
-            <h2>Results & Impact</h2>
-            <p>
-                [Discuss the results of your project. Was it successful? How did you evaluate its success? What impact did this project have?]
-            </p>
-            <p>
-                [Include any quantitative data or qualitative feedback that demonstrates the success of your solution.]
-            </p>
-        </div>
         
         <!-- Technologies Used -->
         <div class="project-section">
-            <h2>Technologies & Tools Used</h2>
+            <h2>Skills Developed</h2>
             <div class="tech-list">
-                <span class="tech-tag">CAD Software</span>
+                <span class="tech-tag">SolidWorks</span>
                 <span class="tech-tag">Finite Element Analysis</span>
-                <span class="tech-tag">3D Printing</span>
-                <span class="tech-tag">CNC Machining</span>
-                <span class="tech-tag">[Add other relevant technologies]</span>
+                <span class="tech-tag">Research</span>
+                <span class="tech-tag">Thermocouple implementation</span>
             </div>
         </div>
         
-        <!-- Conclusion -->
-        <div class="project-section">
-            <h2>Conclusion</h2>
-            <p>
-                [Summarize what you learned from this project and how it has contributed to your development as an engineer. Mention any future improvements or extensions you might consider.]
-            </p>
-        </div>
     </div>
     
     <!-- Footer -->
