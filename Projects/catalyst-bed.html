@@ -246,6 +246,15 @@
             padding: 15px;
         }
 
+        .grid-item img {
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
         /* Shared caption styles for both grids */
         .image-grid-grey .grid-caption {
             padding: 12px;
@@ -538,15 +547,21 @@
             </p>
             <div class="image-grid-grey">
                 <div class="grid-item">
-                    <img src="../images/SupportPlatePic.jpg" alt="Chamber Head">
+                    <a href="/images/ChamberHead-large.jpg">
+                        <img src="../images/SupportPlatePic.jpg" alt="Chamber Head">
+                    </a>
                     <p class="grid-caption">Support Plate</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/YieldedPlate.PNG" alt="Chamber Housing">
+                    <a href="/images/ChamberHead-large.jpg">
+                        <img src="../images/YieldedPlate.PNG" alt="Chamber Housing">
+                    </a>
                     <p class="grid-caption">Original Design Yielding Under Transient Loading</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/Yield2.png" alt="Chamber Housing">
+                    <a href="/images/ChamberHead-large.jpg">
+                        <img src="../images/Yield2.png" alt="Chamber Housing">
+                    </a>
                     <p class="grid-caption">Original Design Yielding Under Transient Loading 2</p>
                 </div>
             </div>
