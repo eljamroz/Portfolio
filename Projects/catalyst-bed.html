@@ -489,12 +489,13 @@
                 </p>
                <p>
                 The negatives are that the cyanide process is the most dangerous, and requires a lot of safety precautions. This means I had to go into a deep dive on 
-                cyanide safety, and what the concerns actually are here. This involved drawing up safety procedures that we eventually cleared with Environmental Health and Safety at NC State.</p>
+                cyanide safety, and what the concerns actually are here. This involved drawing up safety procedures that we eventually cleared with Environmental Health and Safety at NC State (EHS).</p>
                 <p>
                 Our plating process is a 3 step plate which goes on a stainless steel mesh. It involves a nickel strike, a silver strike, and a silver plate, with thicknesses that follow aerospace standards 
                 for plated catalysts. </p>
                 <p>
                 We are currently in the plating proccess and have just finished several rounds of nickel striked plating. To the right are some images of the plates under a microscope.
+                At this time I am waiting on respirator fittings with the EHS department so I can start the cyanide based silver process.
                 
             </p>
 
@@ -507,7 +508,7 @@
             <h2>Validation</h2>
             <p>
                Validation has been a huge part of the process on the way to a critical design review. The previous team lead and I have sunk countless hours into the 
-                validation of the catalyst bed to ensure safety and efficiency. As it is a high pressure high temperature vessel that is essential to downstream components,
+                validation of the catalyst bed to ensure safety and efficiency. As it is a high pressure & high temperature vessel that is essential to downstream components,
                 we have to make sure it is safe and reliable. The things we have to consider are steady state and transient pressure analysis, transient thermal analysis,
                 bolt pretensioning and it's effect on the sealing of the flanges, and more. It's been a really great learning opportunity for me, as before this, I had only classroom Ansys experience.
             </p>
@@ -530,8 +531,17 @@
                 </div>
             </div>
             
+            <div class="project-image-container" style="float: right; width: 40%; margin: 0 0 20px 30px;">
+                <img src="/images/SupportPlatePic.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">Support Plate</p>
+                <img src="/images/YieldedPlate.PNG" alt="Project Overview" class="project-image">
+                <p class="image-caption">Original Design Yielding Under Transient Loading</p>
+            </div>
             <p>
-                Very Valid. Much Validation. Wow.
+               One of the biggest design challenges I had to overcome was the structural integrity of our support plate. The support plate the bottom part of the Catalyst Cartridge, and supports the mesh stack (Fig 1).
+                Something I noticed while validating our original design was that the plate could not handle the startup pressures of the Catalyst bed. 
+                In steady state opperation, the upstream pressure (in the cartride) is ~650 psi, while the downstream gas pressure is ~575 psi due to pressure drop. This results in a small pressure differential which has minor stresses on the plate.
+                More importantly is Catbed startup, where the upstream pressure is ~650 psi before the downstream has ramped up. This results in a large pressure differential which we saw cause yielding in multiple parts of the plate (Fig 2).
             </p>
         </div>
         
