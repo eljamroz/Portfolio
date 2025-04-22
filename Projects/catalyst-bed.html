@@ -246,14 +246,6 @@
             padding: 15px;
         }
 
-        .grid-item img {
-            transition: transform 0.3s ease;
-        }
-
-        .grid-item img:hover {
-            transform: scale(1.05);
-            cursor: pointer;
-        }
 
         /* Shared caption styles for both grids */
         .image-grid-grey .grid-caption {
@@ -280,6 +272,66 @@
             font-size: 0.9rem;
         }
         
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-lightbox:hover,
+        .close-lightbox:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add a subtle zoom effect on hover */
+        .lightbox-trigger {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-trigger:hover {
+            transform: scale(1.03);
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -338,6 +390,13 @@
     </style>
 </head>
 <body>
+    <!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" class="lightbox-content">
+    <div id="lightbox-caption">
+</div>
+  </div>
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
@@ -356,7 +415,7 @@
         <h1>Catalyst Bed - Argenta 7A</h1>
         <div class="project-meta">
             <span>Category: Engineering Design, Validation, Manufacturing</span>
-            <span>Year: 2023-Present</span>
+            <span>Year: 2024-Present</span>
         </div>
     </header>
     
@@ -524,45 +583,39 @@
             
             <div class="image-grid-grey">
                 <div class="grid-item">
-                    <img src="../images/BoltedMesh.jpg" alt="Chamber Head">
+                    <img src="../images/BoltedMesh.jpg" alt="Chamber Head" class="lightbox-trigger">
                     <p class="grid-caption">Medium Density Meshing</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/Loads.jpg" alt="Chamber Housing">
+                    <img src="../images/Loads.jpg" alt="Chamber Housing" class="lightbox-trigger">
                     <p class="grid-caption">Bolt Pretension Test Setup</p>
                 </div>
                 <div class="grid-item">
                     <video width="100%" controls muted>
-                        <source src="/videos/TransientThermal.mp4" type="video/mp4">
+                        <source src="/videos/TransientThermal.mp4" type="video/mp4" class="lightbox-trigger">
                         Your browser does not support the video tag.
                     </video>
                     <p class="grid-caption">Transient Thermal Temp Results</p>
                 </div>
             </div>
             <p>
-               One of the biggest design challenges I had to overcome was the structural integrity of our support plate. The support plate the bottom part of the Catalyst Cartridge, and supports the mesh stack (Fig 1).
-                Something I noticed while validating our original design was that the plate could not handle the startup pressures of the Catalyst bed. 
-                In steady state opperation, the upstream pressure (in the cartride) is ~650 psi, while the downstream gas pressure is ~575 psi due to pressure drop. This results in a small pressure differential which has minor stresses on the plate.
-                More importantly is Catbed startup, where the upstream pressure is ~650 psi before the downstream has ramped up. This results in a large pressure differential which we saw cause yielding in multiple parts of the plate (Fig 2).
+               One of the biggest design challenges I had to overcome was the structural integrity of our support plate. The support plate the bottom part of the Catalyst Cartridge, and supports the mesh stack (Fig 1 Below).
+                Something I noticed while validating our original design was that the plate could not handle the startup pressures of the Catalyst bed. </p>
+            <p> In steady state opperation, the upstream pressure (in the cartride) is ~650 psi, while the downstream gas pressure is ~575 psi due to pressure drop. This results in a small pressure differential which has minor stresses on the plate. </p>
+            <p> More importantly is Catbed startup, where the upstream pressure is ~650 psi before the downstream has ramped up. This results in a large pressure differential which we saw cause yielding in multiple parts of the plate (Fig 2&3 Below).
             </p>
             <div class="image-grid-grey">
                 <div class="grid-item">
-                    <a href="/images/ChamberHead-large.jpg">
-                        <img src="../images/SupportPlatePic.jpg" alt="Chamber Head">
-                    </a>
-                    <p class="grid-caption">Support Plate</p>
+                        <img src="../images/SupportPlatePic.jpg" alt="Chamber Head" class="lightbox-trigger">
+                    <p class="grid-caption">(1) Support Plate</p>
                 </div>
                 <div class="grid-item">
-                    <a href="/images/ChamberHead-large.jpg">
-                        <img src="../images/YieldedPlate.PNG" alt="Chamber Housing">
-                    </a>
-                    <p class="grid-caption">Original Design Yielding Under Transient Loading</p>
+                        <img src="../images/YieldedPlate.PNG" alt="Chamber Housing" class="lightbox-trigger">
+                    <p class="grid-caption">(2) Original Design Yielding Under Transient Loading</p>
                 </div>
                 <div class="grid-item">
-                    <a href="/images/ChamberHead-large.jpg">
-                        <img src="../images/Yield2.png" alt="Chamber Housing">
-                    </a>
-                    <p class="grid-caption">Original Design Yielding Under Transient Loading 2</p>
+                        <img src="../images/Yield2.png" alt="Chamber Housing" class="lightbox-trigger"> 
+                    <p class="grid-caption">(3) Original Design Yielding Under Transient Loading 2</p>
                 </div>
             </div>
         </div>
@@ -597,35 +650,35 @@
 
             <div class="image-grid">
                 <div class="grid-item">
-                    <img src="../images/HeadPipe.png" alt="Chamber Head">
+                    <img src="../images/HeadPipe.png" alt="Chamber Head" class="lightbox-trigger">
                     <p class="grid-caption">Chamber Head Pipe DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/HeadDWG.png" alt="Chamber Housing">
+                    <img src="../images/HeadDWG.png" alt="Chamber Housing" class="lightbox-trigger">
                     <p class="grid-caption">Chamber Head Flange DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/HousingDWG.jpg" alt="Catalyst Cartridge">
+                    <img src="../images/HousingDWG.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Chamber Housing Flange DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/Distribution.png" alt="Catalyst Cartridge">
+                    <img src="../images/Distribution.png" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Distribution Plate DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/SupportPlate.png" alt="Catalyst Cartridge">
+                    <img src="../images/SupportPlate.png" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Support Plate DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/ASSY1.png" alt="Catalyst Cartridge">
+                    <img src="../images/ASSY1.png" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Head Assembly DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/ASSY2.png" alt="Catalyst Cartridge">
+                    <img src="../images/ASSY2.png" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Cartridge Assembly DWG</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/ASSY3.png" alt="Catalyst Cartridge">
+                    <img src="../images/ASSY3.png" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Housing Assembly DWG</p>
                 </div>
             </div>
@@ -671,5 +724,44 @@
             </div>
         </div>
     </footer>
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" class="lightbox-content">
+    <div id="lightbox-caption">
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the lightbox elements
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const closeLightbox = document.getElementsByClassName("close-lightbox")[0];
+      
+      // Get all images with the lightbox-trigger class
+      const images = document.querySelectorAll(".lightbox-trigger");
+      
+      // Add click event to each image
+      images.forEach(img => {
+        img.onclick = function() {
+          lightbox.style.display = "block";
+          lightboxImg.src = this.src;
+          lightboxCaption.innerHTML = this.alt;
+        }
+      });
+      
+      // Close the lightbox when clicking the X
+      closeLightbox.onclick = function() {
+        lightbox.style.display = "none";
+      }
+      
+      // Close the lightbox when clicking outside the image
+      lightbox.onclick = function(event) {
+        if (event.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 </html>
