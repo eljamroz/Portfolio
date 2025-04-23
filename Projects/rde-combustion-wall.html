@@ -212,6 +212,66 @@
             font-size: 0.9rem;
         }
         
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+        }
+
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-lightbox:hover,
+        .close-lightbox:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add a subtle zoom effect on hover */
+        .lightbox-trigger {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-trigger:hover {
+            transform: scale(1.03);
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary-color);
@@ -285,7 +345,7 @@
     <!-- Project Header -->
     <header class="project-header container">
         <a href="../index.html" class="back-btn">← Back to All Projects</a>
-        <h1>Combustion Chamber Wall</h1>
+        <h1>Combustion Chamber Walls</h1>
         <div class="project-meta">
             <span>Category: Engineering Design</span>
             <span>Year: 2025</span>
@@ -297,23 +357,25 @@
         <!-- Overview Section -->
         <div class="project-section">
             <h2>Overview</h2>
-            <div class="project-image-container" style="float: right; width: 35%; margin: 0 0 0px 20px;">
+            <div class="project-image-container" style="float: right; width: 25%; margin: 0 0 0px 20px;">
                 <img src="/images/ChamberView.jpg" alt="Project Overview" class="project-image">
-                <p class="image-caption">Combustion Chamber</p>
+                <p class="image-caption">Quartz Insert Design for Future Large Scale RDE</p>
+                <img src="/images/QuartzRDE.jpg" alt="Project Overview" class="project-image">
+                <p class="image-caption">Full Quartz Combustion Chamber for Baby RDE</p>
             </div>
             <p>
-                This is a project I am working on in a research lab, Braun's Engineering Factory for Advanced Supersonic Technologies (BEFAST). 
+                These are projects I am working on in a research lab, Braun's Engineering Factory for Advanced Supersonic Technologies (BEFAST). 
                 BEFAST is currently developing a baby Rotating Detonation Engine (RDE) for testing applications. The RDE will allow for different
                 teams to test many individual projects on the same egnine and test stand. </p>
                 <p>
-                This semester I've taken on a project to research, design, manufacture, and test a new combustion chamber wall for the RDE. What 
-                will be unique about my chamber is that it will be focused on two aspects of testing we haven't yet designed for gathering data. </p>
+                This semester I've taken on a project to research, design, manufacture, and test a new combustion chamber walls for the RDE. What 
+                will be unique about my chambers is that they will be focused on two aspects we haven't yet gathering data for. </p>
                 <p>
-                The first new implementation will be a series of thermocouples that will be placed in the wall to gather temperature data. The reason
-                we haven't implemented this on the original chamber is due to the extreme temperature inside the chamber. With temperatures reaching 3000-4000K, almost any 
+                The first new chamber will include a series of thermocouples that will be placed in the wall to gather temperature data. The reason
+                we haven't implemented this on the original chamber is due to the extreme temperature inside the flow. With temperatures reaching 3000-4000K, almost any 
                 ordinary thermocouples are destroyed before providing any data. So the challenge is to find accurate ways to record the data over a short test duration. 
                 <p>
-                The second new implementation will be a quartz window that will allow us to see the flow and detonation waves in the chamber. Having optical access to the
+                The second new chamber will be a quartz design that will allow us to see the flow and detonation waves in the chamber. Having optical access to the
                 chamber flow should help confirm simulations and provide a nice visual to show what we are achieving in the chamber.   
                 </p>
             </p>
@@ -331,10 +393,10 @@
                 extruding into the chamber flow. Then you consider the thermal impact, the detonation waves create temperatures of 3000-4000K, which is too hot for conventional thermocouples.
             </p>
             <p>
-                So the challenge is to find a affordable and accurate way to use thermocouples to gather temperature data. I had two ideas to solve this problem. The first was to use a 
-                NANMAC Ultra Fast thermocouple with what they advertise as a "Self Renewing Junction". This is a thermocouple that is designed to be used in high stress and temperature environments, and the
-                tip can erode or wear away up to 1/2 inch during the test while still retrieving data. This NANMAC thermocouple would be placed in the chamber wall and the tip would be flush with the interior
-                surface of the wall, fully expepriencing the chamber flow. The second idea, which I plan to attempt if the NANMAC thermocouple fails, is to not bore the thermocouple port all the way through the wall. 
+                So the challenge is to find a affordable and accurate way to use thermocouples to gather temperature data. I had two ideas to solve this problem. The first was to have the 
+                thermocouple port drilled fully through the wall, but having the thermocouple tip just a short distance away from the inner wall. This could allow the thermocouple to read the
+                temperature of the ccombustion, without experiencing the full shearing force of chamber flow.
+                The second idea, which I plan to attempt if the thermocouple fails due to temperatue, is to not bore the thermocouple port all the way through the wall. 
                 By not having the thermocouple tip fully exposed to the chamber flow, the instumentation would be protected. This may be a good option as we could use a lower quality thermocouple, as it would not experience 
                 such extreme conditions. The downside to this is that the data would be less accurate and our results would be
                 based on heat transfer calculations, and would naturally not be as accurate as direct temperature data. 
@@ -343,34 +405,74 @@
         
         <!-- Process Section -->
         <div class="project-section">
-            <h2>Designs</h2>
+            <h2>Design Process</h2>
+            <h3>First Draft</h3>
             <p>
-                Here's some screenshots of the design as I currently have it now. I have a few more iterations to go through before I finalize the design.
+               The idea behind this first iteration was a single wall that incorporated the quartz window and the thermocouple port. Thus saving cost and time by not having to manufacture two separate pieces.
+               While this design is solid and would function as intended, it might not be the best option for our Baby RDE. I realized a few things after I had finished this model. Firstly, the quartz window would only have a rough area of 1 square inch. 
+               That is a very small area to see the flow, and I don't think it would be worth the effort to manufacture this design. Secondly, the cost of a finely machined quartz window is very expensive. I noticed as size increased we actually saw a decrease in price due to less complexity.
+                </p>
+                <p>
+                    So I decided this design will be used fro out full scale RDE that we plan to design and build in the future. THis would have a larger window which could actually be used for good optical data.
             </p>
             
             <div class="image-grid">
                 <div class="grid-item">
-                    <img src="../images/Chamber1.jpg" alt="Chamber Head">
+                    <img src="../images/Chamber1.jpg" alt="Chamber Head" class="lightbox-trigger">
                     <p class="grid-caption">Iso view of the chamber</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/SectionViewBig.jpg" alt="Chamber Housing">
+                    <img src="../images/SectionViewBig.jpg" alt="Chamber Housing" class="lightbox-trigger">
                     <p class="grid-caption">Section View</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/SectionViewWindow.jpg" alt="Catalyst Cartridge">
+                    <img src="../images/SectionViewWindow.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Close up on the window section view</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/exploded1.jpg" alt="Catalyst Cartridge">
+                    <img src="../images/exploded1.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Exploded window fixture</p>
                 </div>
                 <div class="grid-item">
-                    <img src="../images/exploded2.jpg" alt="Catalyst Cartridge">
+                    <img src="../images/exploded2.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
                     <p class="grid-caption">Exploded window fixture</p>
                 </div>
             </div>
             
+            <h3>Quartz Combustion Chamber</h3>
+            <p>
+                The current plan is to create two combustion chambers for different tests. 
+                The first will be a full quartz design, designed specifically for optical tests. It consists of a quartz 
+                insert that is going to be cheaper and easier to manufacture. 
+                The insert is bolted into place by our top plate and base plate and connects to the injector.
+            </p>
+
+            <div class="image-grid">
+                <div class="grid-item">
+                    <img src="../images/QuartzRDE.jpg" alt="Chamber Head" class="lightbox-trigger">
+                    <p class="grid-caption">Main View of the Chamber</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/QuartzSection-Edit.jpg" alt="Chamber Housing" class="lightbox-trigger">
+                    <p class="grid-caption">Section View</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/QuartzView3.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
+                    <p class="grid-caption">Chamber Angle 2</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/Insert.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
+                    <p class="grid-caption">Quartz Insert</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/QuartzExploded.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
+                    <p class="grid-caption">Exploded Quartz ASSY</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images/QuartzExploded2.jpg" alt="Catalyst Cartridge" class="lightbox-trigger">
+                    <p class="grid-caption">Exploded Quartz ASSY</p>
+                </div>
+            </div>
         </div>
         
         <!-- Future Section -->
@@ -407,5 +509,44 @@
             </div>
         </div>
     </footer>
+    <!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" class="lightbox-content">
+    <div id="lightbox-caption">
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the lightbox elements
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const closeLightbox = document.getElementsByClassName("close-lightbox")[0];
+      
+      // Get all images with the lightbox-trigger class
+      const images = document.querySelectorAll(".lightbox-trigger");
+      
+      // Add click event to each image
+      images.forEach(img => {
+        img.onclick = function() {
+          lightbox.style.display = "block";
+          lightboxImg.src = this.src;
+          lightboxCaption.innerHTML = this.alt;
+        }
+      });
+      
+      // Close the lightbox when clicking the X
+      closeLightbox.onclick = function() {
+        lightbox.style.display = "none";
+      }
+      
+      // Close the lightbox when clicking outside the image
+      lightbox.onclick = function(event) {
+        if (event.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 </html>
